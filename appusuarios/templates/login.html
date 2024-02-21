@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela login</title>
+</head>
+<body>
+    <h1>Login</h1>
+
+    {% if messages %}
+    <div style="color: red;">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <h1>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Nome Usuário..." name="username">
+            <br>
+                   
+            <input type="password" placeholder="Senha..." name="senha">
+            <br>
+            <input type="submit" value="Entrar">
+
+
+        </form>
+
+        <form>
+            <button formaction="/"> Início </button>
+        </form>
+    </h1>
+</body>
+</html>

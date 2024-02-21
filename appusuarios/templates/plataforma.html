@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% if messages %}
+
+    <div>
+        {% for message in messages %}
+
+            {% if message.tags == 'success' %}
+                <div style="color: green;">
+                    {{ message }}
+                </div>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+
+    {% endif %}
+    
+
+
+    <h1>Bem-vindo(a), {{ user.username }}!</h1>
+
+    <!-- botão de logout -->
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    <br>
+    <form>
+        <button formaction="/"> Inicio </button>
+    </form>
+
+</body>
+</html>
